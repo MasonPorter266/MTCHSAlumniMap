@@ -1,19 +1,56 @@
 <script src="JQuery/jquery.js"></script>
 <script>
+//Java animations
 function Open(x){
-		if(x == 0){
-			$("#extension").removeClass("open").addClass("closed");
-			$("#extension").animate({width:'0vw'},{duration:1000});
-			$("#map").animate({
-				width:'84vw'}, {duration:1000
-			}).clearQueue()
-		}
-		else{
+		switch(x){
+			case 1:
+			//set the content in each section
+			$("#Content").html("</p>Home<p>");
+			
+			//do the animation
+			$("#Content").html("</p>Home b<p>");
 			$("#extension").removeClass("closed").addClass("open");
 			$("#extension").animate({width:'15vw'},{duration:1000});
 			$("#map").animate({
 				width:'69vw'}, {duration:1000
 			}).clearQueue();
+			break;
+			
+			case 2:
+			$("#Content").html("</p>About<p>");
+			$("#extension").removeClass("closed").addClass("open");
+			$("#extension").animate({width:'15vw'},{duration:1000});
+			$("#map").animate({
+				width:'69vw'}, {duration:1000
+			}).clearQueue();
+			break;
+			
+			case 3:
+			$("#Content").html("</p>Search<p>");
+			$("#extension").removeClass("closed").addClass("open");
+			$("#extension").animate({width:'15vw'},{duration:1000});
+			$("#map").animate({
+				width:'69vw'}, {duration:1000
+			}).clearQueue();
+			break;
+			
+			case 4:
+			$("#Content").html("</p>Add Alumni<p>");
+			$("#extension").removeClass("closed").addClass("open");
+			$("#extension").animate({width:'15vw'},{duration:1000});
+			$("#map").animate({
+				width:'69vw'}, {duration:1000
+			}).clearQueue();
+			break;
+			
+			default:
+			$("#Content").html("</p>Home<p>");
+			$("#extension").removeClass("open").addClass("closed");
+			$("#extension").animate({width:'0vw'},{duration:1000});
+			$("#map").animate({
+				width:'84vw'}, {duration:1000
+			}).clearQueue()
+			break;
 		}
 }
 </script>

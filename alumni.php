@@ -94,13 +94,13 @@
         	<div id="gui">
             	<p>hello</p>
                 <button onClick="Open(1)">home</button>
-                <button onClick="Open(1)">about</button>
-                <button onClick="Open(1)">search</button>
-                <button onClick="Open(1)">alumni</button>
-				<p id="Content"></p>
+                <button onClick="Open(2)">about</button>
+                <button onClick="Open(3)">search</button>
+                <button onClick="Open(4)">alumni</button>
             </div>
             <div id="extension" class="closed">
             	<button onClick="Open(0)">X</button>
+				<p id="Content"></p>
             </div>
             <div id="map" class="Map"></div>
     	</section>
