@@ -1,0 +1,19 @@
+<script src="JQuery/jquery.js"></script>
+<script>
+function Open(x){
+		if(x == 0){
+			$("#extension").removeClass("open").addClass("closed");
+			$("#extension").animate({width:'0vw'},{duration:1000});
+			$("#map").animate({
+				width:'84vw'}, {duration:1000
+			}).clearQueue()
+		}
+		else{
+			$("#extension").removeClass("closed").addClass("open");
+			$("#extension").animate({width:'15vw'},{duration:1000});
+			$("#map").animate({
+				width:'69vw'}, {duration:1000
+			}).clearQueue();
+		}
+}
+</script>
