@@ -5,12 +5,14 @@
 <meta charset="utf-8">
 <title>Alumni Map</title>
   <?php
+  	//include java as well as make a sql connection
   	include'JQuery/animations.html';
 	$servername = "clone2.smtchs.org";
 	$username = "clone2";
 	
 	$conn = new mysqli($servername, $username, '*SsEkS=3k]1T', 'clone2_alumnimap');
 	
+	//test connection if it works run sql
 	if(!$conn){
 		die("Connection failed:");
 	}else{
@@ -24,7 +26,6 @@
     // JavaScript Document
     var map;
     //set map
-	//
     function initMap(){
         var mapCanvas = document.getElementById("map");
         var mapOptions = {
@@ -91,6 +92,7 @@
 <body>
 	<main>
         <section>
+        	<!--Make the starting GUI as well extension which comes out when a buttone is slected-->
         	<div id="gui">
             	<p>hello</p>
                 <button onClick="Open(1)">home</button>
