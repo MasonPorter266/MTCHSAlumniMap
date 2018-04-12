@@ -101,7 +101,6 @@
                 <button onClick="Open(4)">alumni</button>
             </div>
             <div id="extension" class="closed">
-            	<button onClick="Open(0)">X</button>
 				<p id="Content"></p>
             </div>
             <div id="map" class="Map"></div>

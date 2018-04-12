@@ -5,7 +5,7 @@ function Open(x){
 		switch(x){
 			case 1:
 			//set the content in each section
-			$("#extension").html("<p>Home</p>");
+			$("#extension").html("<button onClick=\"Open(0)\">X</button><p>Home</p>");
 			//do the animation
 			$("#extension").removeClass("closed").addClass("open");
 			$("#extension").animate({width:'15vw'},{duration:1000});
@@ -24,7 +24,7 @@ function Open(x){
 			break;
 			
 			case 3:
-			$("#extension").html("<p>Search</p><input type=\"text\" name=\"Search\">");
+			$("#extension").html("<button onClick=\"Open(0)\">X</button><p>Search</p><input type=\"text\" name=\"Search\" id=\"searchbar\">");
 			$("#extension").removeClass("closed").addClass("open");
 			$("#extension").animate({width:'15vw'},{duration:1000});
 			$("#map").animate({
@@ -33,7 +33,7 @@ function Open(x){
 			break;
 			
 			case 4:
-			$("#extension").html("<p>Add Alumni</p>");
+			$("#extension").html("<button onClick=\"Open(0)\">X</button><p>Add Alumni</p>");
 			$("#extension").removeClass("closed").addClass("open");
 			$("#extension").animate({width:'15vw'},{duration:1000});
 			$("#map").animate({
