@@ -15,7 +15,7 @@ function Open(x){
 			break;
 			
 			case 2:
-			$("#extension").html("<p>About</p>");
+			$("#extension").html("<button onClick=\"Open(0)\">X</button><p>About</p>");
 			$("#extension").removeClass("closed").addClass("open");
 			$("#extension").animate({width:'15vw'},{duration:1000});
 			$("#map").animate({
@@ -24,7 +24,7 @@ function Open(x){
 			break;
 			
 			case 3:
-			$("#extension").html("<button onClick=\"Open(0)\">X</button><p>Search</p><input type=\"text\" name=\"Search\" id=\"searchbar\">");
+			$("#extension").html("<button onClick=\"Open(0)\">X</button><p>Search</p><input type=\"text\" name=\"Search\" id=\"searchbar\"><input type=\"button\" onClick=\"Search()\"><div id=\"results\"></div>");
 			$("#extension").removeClass("closed").addClass("open");
 			$("#extension").animate({width:'15vw'},{duration:1000});
 			$("#map").animate({
