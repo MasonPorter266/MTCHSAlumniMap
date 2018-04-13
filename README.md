@@ -1,6 +1,5 @@
 <h1 align="center">
-![MTCHS Logo](http://www.mtchs.org/wp-content/uploads/2016/01/icon.png)
-MTCHS Alumni Map<br>
+![MTCHS Logo](http://www.mtchs.org/wp-content/uploads/2016/01/icon.png)MTCHS Alumni Map
 <h4 align="center">
 © 2018 Meridian Technical Charter High School. All Rights Reserved.
 </h4>
