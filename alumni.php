@@ -84,7 +84,7 @@
         document.getElementById("Content").innerHTML = x
     }
 	function search(){
-		document.getElementById("results").innerHTML = "<?php while($row = $result2->fetch_assoc()){ echo $row["Name"}  ?>"
+		document.getElementById("results").innerHTML = "<?php while($row = $result2->fetch_assoc()){ echo " " . $row["Name"];}  ?>"
 	}
         //AIzaSyBeVccoArT3M9-jEI9G-QtpNH6Di0kY9ok
     </script>
