@@ -24,7 +24,7 @@ function Open(x){
 			break;
 			
 			case 3:
-			$("#extension").html("<button onClick=\"Open(0)\">X</button><p>Search</p><input type=\"text\" name=\"Search\" id=\"searchbar\"><input type=\"button\" onClick=\"search()\"><div id=\"results\"></div>");
+			$("#extension").html("<button onClick=\"Open(0)\">X</button><p>Search</p><form method = 'none' id='search'><input type=\"text\" name=\"search\" id=\"searchbar\"><input type='submit' value = 'button' onClick'search()'></form>");
 			$("#extension").removeClass("closed").addClass("open");
 			$("#extension").animate({width:'15vw'},{duration:1000});
 			$("#map").animate({
@@ -49,5 +49,33 @@ function Open(x){
 			}).clearQueue()
 			break;
 		}
+}
+var request;
+function search(event){
+	event.preventDefault();
+	if(request){
+		request.abort();
+	}
+	
+	var $form = $(this);
+	var $inputs = $form.find("input, select,button,textarea");
+	var serializedData = $form.serialize();
+	$inputs.prop("disabled",true);
+	request = $.ajax({url:"alumni.php",type:"GET",data:serializedData});
+	request.done(function(response,textStatus,jqXHR){
+		console.log("hi");
+	});
+	request.fail(function (jqXHR, textStatus, errorThrown){
+        // Log the error to the console
+        console.error(
+            "The following error occurred: "+
+            textStatus, errorThrown
+        );
+    });
+	request.always(function () {
+        // Reenable the inputs
+        $inputs.prop("disabled", false);
+    });
+
 }
 </script>

@@ -17,9 +17,7 @@
 		die("Connection failed:");
 	}else{
 		$sql = "SELECT DISTINCT Longitude, Latitude FROM `MapLocation`";
-		$sql2 = "SELECT DISTINCT Name, Location, GradYear FROM `Alumni`";
 		$result = $conn->query($sql);
-		$result2 = $conn->query($sql2);
 	}
   ?>
 	<script>
@@ -80,12 +78,6 @@
             }
         });
     }
-    function updateTextBox(x){
-        document.getElementById("Content").innerHTML = x
-    }
-	function search(){
-		document.getElementById("results").innerHTML = "<?php while($row = $result2->fetch_assoc()){ echo " " . $row["Name"];}  ?>"
-	}
         //AIzaSyBeVccoArT3M9-jEI9G-QtpNH6Di0kY9ok
     </script>
   <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDZ0xnpDVoO-WtnBN37DEWJx-0Z-gzC27s&callback=initMap"
