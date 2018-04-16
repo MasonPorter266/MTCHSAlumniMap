@@ -1,5 +1,5 @@
 <h1 align="center">
-![MTCHS Logo](/images/MTCHSLogo.png)
+![MTCHS Logo](https://raw.githubusercontent.com/MasonPorter266/MTCHSAlumniMap/master/images/MTCHSLogo.png)
 </h4>
 <h4 align="center">
 MTCHS Alumni Map<br>
@@ -21,13 +21,13 @@ Planned Features:<br>
 -Allow for editing of pervious submissions without the need to submit new form.
 
 ## Screenshots:<br>
-![Alumni Home](/images/Alumni Map-Home.png)
+![Alumni Home](https://raw.githubusercontent.com/MasonPorter266/MTCHSAlumniMap/master/images/Alumni%20Map-Home.png)
 Alumni Map Home Screen
 
-![Search Menu](/images/Alumni Map-Search Menu.png)
+![Search Menu](https://raw.githubusercontent.com/MasonPorter266/MTCHSAlumniMap/master/images/Alumni%20Map-Search%20Menu.png)
 Alumni Map Search Menu
 
-![Alumni Form](/images/Alumni Map-Alumni Form.png)
+![Alumni Form](https://raw.githubusercontent.com/MasonPorter266/MTCHSAlumniMap/master/images/Alumni%20Map-Alumni%20Form.png)
 Alumni Map Alumni Form
 
 ## Editing/Manipulation Policy:
