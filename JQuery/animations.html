@@ -53,29 +53,14 @@ function Open(x){
 var request;
 function search(event){
 	event.preventDefault();
-	if(request){
-		request.abort();
-	}
-	
-	var $form = $(this);
-	var $inputs = $form.find("input, select,button,textarea");
-	var serializedData = $form.serialize();
-	$inputs.prop("disabled",true);
-	request = $.ajax({url:"alumni.php",type:"GET",data:serializedData});
-	request.done(function(response,textStatus,jqXHR){
-		console.log("hi");
-	});
-	request.fail(function (jqXHR, textStatus, errorThrown){
-        // Log the error to the console
-        console.error(
-            "The following error occurred: "+
-            textStatus, errorThrown
-        );
+	var search = $("searchbar").val();
+	$.ajax({
+		type:"post",
+		url:"post.php",
+        data:"search="+search,
+        success:function(data){
+        	showComment();
+        }
     });
-	request.always(function () {
-        // Reenable the inputs
-        $inputs.prop("disabled", false);
-    });
-
-}
-</script>
+	Open(3);
+}</script>
