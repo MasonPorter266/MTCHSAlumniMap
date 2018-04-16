@@ -24,7 +24,7 @@ function Open(x){
 			break;
 			
 			case 3:
-			$("#extension").html("<button onClick=\"Open(0)\">X</button><p>Search</p><form method = 'none' id='search'><input type=\"text\" name=\"search\" id=\"searchbar\"><input type='submit' value = 'button' onClick'search()'></form>");
+			$("#extension").html("<button onClick=\"Open(0)\">X</button><p>Search</p><form method = 'none' id='search'><input type=\"text\" name=\"search\" id=\"searchbar\"><input type='submit' value = 'button' onClick'search()'></form><p id='results'><?php echo $search; ?></p>");
 			$("#extension").removeClass("closed").addClass("open");
 			$("#extension").animate({width:'15vw'},{duration:1000});
 			$("#map").animate({
@@ -62,5 +62,4 @@ function search(event){
         	showComment();
         }
     });
-	Open(3);
 }</script>
