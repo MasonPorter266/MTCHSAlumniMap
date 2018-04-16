@@ -1,6 +1,7 @@
-<h1 align="center">
+<p align="center">
 ![MTCHS Logo](https://raw.githubusercontent.com/MasonPorter266/MTCHSAlumniMap/master/images/MTCHSLogo.png)
-</h4>
+</p>
+
 <h4 align="center">
 MTCHS Alumni Map<br>
 © 2018 Meridian Technical Charter High School. All Rights Reserved.
