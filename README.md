@@ -1,5 +1,5 @@
 <p align="center">
-![MTCHS Logo](https://raw.githubusercontent.com/MasonPorter266/MTCHSAlumniMap/master/images/MTCHSLogo.png)
+<img src="https://raw.githubusercontent.com/MasonPorter266/MTCHSAlumniMap/master/images/MTCHSLogo.png">
 </p>
 
 <h4 align="center">
