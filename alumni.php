@@ -17,7 +17,10 @@
 		die("Connection failed:");
 	}else{
 		$sql = "SELECT DISTINCT Longitude, Latitude FROM `MapLocation`";
+		$sql2 = "SELECT DISTINCT Alumni.Name, MapLocation.City, MapLocation.State FROM `Alumni` JOIN `MapLocation` ON Alumni.Location = MapLocation.ID WHERE Alumni.Name like '%".$_GET['search']."%' OR MapLocation.CITY like '%".$_GET['search']."%' OR MapLocation.State like '%". $_GET['search'] . "%'";
 		$result = $conn->query($sql);
+		$result2 = $conn->query($sql2);
+		
 	}
   ?>
 	<script>
@@ -36,7 +39,11 @@
             fullscreenControl:false,
             disableDefaultUI:true
         }
-    
+    	var searchkey = "<?php $search = $_GET['search']; echo $search; ?>";
+		if(searchkey != ""){
+			Open(3);
+			document.getElementById("results").innerHTML = "<?php while($row = $result->fetch_assoc()){echo $row["Name"] . $row["City"] . $row["State"];} ?>";
+		}
         //Create map
         map = new google.maps.Map(mapCanvas, mapOptions);
     
