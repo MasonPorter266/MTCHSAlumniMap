@@ -1,0 +1,59 @@
+@charset "utf-8";
+/* CSS Document */
+
+body{
+}
+main{
+	width:100vw;
+	margin:0;
+	padding:0;
+}
+#map{
+	width:84vw;
+	height:99vh; 
+	float:left;
+}
+p{
+	background:#D7A3A4;
+}
+.open, .closed, #map{
+	overflow-x:hidden;
+}
+#Open{
+	width:25px;
+	height:25px;
+}
+#Open2{
+	width:25px;
+	height:25px;
+}
+
+#Content{
+	height:40px;
+	width:100px;
+	overflow:hidden;
+}
+
+#gui{
+	width:15vw;
+	height:99vh;
+	float:left;
+	background-color:#D7A3A4;
+	margin:0;
+	border-right:#000000 1px solid;
+}
+#extension{
+	width:0;
+	height:99vh;
+	margin:0;
+	float:left;
+	background-color:#D7A3A4;
+}
+#searchbar{
+	float:left;
+	width:13vw;
+	margin:1vw;
+}
+.item{
+	width:15vw;
+}

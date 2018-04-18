@@ -1,6 +1,6 @@
 <!doctype html>
 <html>
-<link rel="stylesheet" type="text/css" href="Css/AlumniMap.css">
+<link rel="stylesheet" type="text/css" href="stylesheets/AlumniMap.css">
 <head>
 <meta charset="utf-8">
 <title>Alumni Map</title>
@@ -40,11 +40,11 @@
     	var searchkey = "<?php $search = $_GET['search']; echo $search; ?>";
 		if(searchkey != ""){
 			<?php 
-			$sql2 = "SELECT DISTINCT Alumni.Name, MapLocation.City, MapLocation.State FROM `Alumni` JOIN `MapLocation` ON Alumni.Location = MapLocation.ID WHERE Alumni.Name like '%".$_GET['search']."%' OR MapLocation.CITY like '%".$_GET['search']."%' OR MapLocation.State like '%". $_GET['search'] . "%'";
+			$sql2 = "SELECT DISTINCT Alumni.Name, MapLocation.City, MapLocation.State, FROM `Alumni` JOIN `MapLocation` ON Alumni.Location = MapLocation.ID WHERE Alumni.Name like '%".$_GET['search']."%' OR MapLocation.CITY like '%".$_GET['search']."%' OR MapLocation.State like '%". $_GET['search'] . "%'";
 			$result2 = $conn->query($sql2);
 			?>
 			Open(3);
-			document.getElementById("results").innerHTML = "<?php while($row2 = $result2->fetch_assoc()){echo "<button class=\\\"item\\\"><p class=\\\"item\\\">" . $row2["Name"]; echo "<br>"; echo $row2["City"] . ", " . $row2["State"] . "</p></button>";} ?>";
+			document.getElementById("results").innerHTML = "<?php while($row2 = $result2->fetch_assoc()){echo "<button class=\\\"item\\\"><p class=\\\"item\\\" onClick=\\\"resultItem()\\\">" . $row2["Name"]; echo "<br>"; echo $row2["City"] . ", " . $row2["State"] . "</p></button>";} ?>";
 		}
         //Create map
         map = new google.maps.Map(mapCanvas, mapOptions);
@@ -87,6 +87,9 @@
             }
         });
     }
+	
+	function resultItem(){
+	}
         //AIzaSyBeVccoArT3M9-jEI9G-QtpNH6Di0kY9ok
     </script>
   <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDZ0xnpDVoO-WtnBN37DEWJx-0Z-gzC27s&callback=initMap"
