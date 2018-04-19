@@ -40,11 +40,11 @@
     	var searchkey = "<?php $search = $_GET['search']; echo $search; ?>";
 		if(searchkey != ""){
 			<?php 
-			$sql2 = "SELECT DISTINCT Alumni.Name, MapLocation.City, MapLocation.State, FROM `Alumni` JOIN `MapLocation` ON Alumni.Location = MapLocation.ID WHERE Alumni.Name like '%".$_GET['search']."%' OR MapLocation.CITY like '%".$_GET['search']."%' OR MapLocation.State like '%". $_GET['search'] . "%'";
+			$sql2 = "SELECT DISTINCT Alumni.Name, Alumni.GradYear, Alumni.Education, Alumni.Job,Alumni.Salary, Alumni.IsPathwayRelated, MapLocation.City, MapLocation.State, MapLocation.Latitude, MapLocation.Longitude FROM `Alumni` JOIN `MapLocation` ON Alumni.Location = MapLocation.ID WHERE Alumni.Name like '%".$_GET['search']."%' OR MapLocation.CITY like '%".$_GET['search']."%' OR MapLocation.State like '%". $_GET['search'] . "%'";
 			$result2 = $conn->query($sql2);
 			?>
 			Open(3);
-			document.getElementById("results").innerHTML = "<?php while($row2 = $result2->fetch_assoc()){echo "<button class=\\\"item\\\"><p class=\\\"item\\\" onClick=\\\"resultItem()\\\">" . $row2["Name"]; echo "<br>"; echo $row2["City"] . ", " . $row2["State"] . "</p></button>";} ?>";
+			document.getElementById("results").innerHTML = "<?php while($row2 = $result2->fetch_assoc()){echo "<button class=\\\"item\\\" onClick=\\\"resultItem('" . $row2["City"] . ", " . $row2["State"]."','". $row2["Name"] ."')\\\"><p class=\\\"item\\\">" . $row2["Name"]; echo "<br>"; echo $row2["City"] . ", " . $row2["State"] . "</p></button>";} ?>";
 		}
         //Create map
         map = new google.maps.Map(mapCanvas, mapOptions);
@@ -87,8 +87,9 @@
             }
         });
     }
-	
-	function resultItem(){
+	function resultItem(location,name,year,education,job,salary,isPathwayRelated){
+		change(x);
+		
 	}
         //AIzaSyBeVccoArT3M9-jEI9G-QtpNH6Di0kY9ok
     </script>
