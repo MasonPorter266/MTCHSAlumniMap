@@ -7,9 +7,37 @@ body, main, ul, li, h1, h2, h3, h4, h5, h6, p {
   border: 0;
 }
 
+body {
+  background-image: linear-gradient(to right, #92fe9d 0%, #00c9ff 100%);
+}
+
 .container {
   display: grid;
-  grid-template-columns: 150px 150px 150px;
-  grid-template-rows: 150px 150px;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 250px);
   grid-gap: 1rem;
+}
+
+.item1 {
+  background-image: linear-gradient(to top, #7028e4 0%, #e5b2ca 100%);
+}
+
+.item2 {
+  background-image: linear-gradient(to top, #7028e4 0%, #e5b2ca 100%);
+}
+
+.item3 {
+  background-image: linear-gradient(to top, #7028e4 0%, #e5b2ca 100%);
+}
+
+.item4 {
+  background-image: linear-gradient(to top, #7028e4 0%, #e5b2ca 100%);
+}
+
+.item5 {
+  background-image: linear-gradient(to top, #7028e4 0%, #e5b2ca 100%);
+}
+
+.item6 {
+  background-image: linear-gradient(to top, #7028e4 0%, #e5b2ca 100%);
 }
