@@ -44,7 +44,7 @@
 			$result2 = $conn->query($sql2);
 			?>
 			Open(3);
-			document.getElementById("results").innerHTML = "<?php while($row2 = $result2->fetch_assoc()){echo "<button class=\\\"item\\\" onClick=\\\"resultItem('" . $row2["City"] . ", " . $row2["State"]."','". $row2["Name"] ."','". $row2["GradYear"] ."','". $row2["Education"] ."','". $row2["Job"] ."','". $row2["Salary"] ."','". $row2["IsPathwayRelated"] ."')\\\"><p class=\\\"item\\\">" . $row2["Name"]; echo "<br>"; echo $row2["City"] . ", " . $row2["State"] . "</p></button>";} ?>";
+			document.getElementById("results").innerHTML = "<?php while($row2 = $result2->fetch_assoc()){echo "<button class=\\\"item\\\" onClick=\\\"resultItem(\\\"" . $row2["City"] . ", " . $row2["State"]."\\\",\\\"". $row2["Name"] ."\\\",\\\"". $row2["GradYear"] ."\\\",\\\"". $row2["Education"] ."\\\",\\\"". $row2["Job"] ."\\\",\\\"". $row2["Salary"] ."\\\",\\\"". $row2["IsPathwayRelated"] .")\\\"><p class=\\\"item\\\">" . $row2["Name"]; echo "<br>"; echo $row2["City"] . ", " . $row2["State"] . "</p></button>";} ?>";
 		}
         //Create map
         map = new google.maps.Map(mapCanvas, mapOptions);
