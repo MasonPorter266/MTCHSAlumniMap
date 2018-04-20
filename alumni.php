@@ -44,7 +44,7 @@
 			$result2 = $conn->query($sql2);
 			?>
 			Open(3);
-			document.getElementById("results").innerHTML = "<?php while($row2 = $result2->fetch_assoc()){echo "<button class=\\\"item\\\" onClick=\\\"resultItem('" . $row2["City"] . ", " . $row2["State"]."','". $row2["Name"] ."')\\\"><p class=\\\"item\\\">" . $row2["Name"]; echo "<br>"; echo $row2["City"] . ", " . $row2["State"] . "</p></button>";} ?>";
+			document.getElementById("results").innerHTML = "<?php while($row2 = $result2->fetch_assoc()){echo "<button class=\\\"item\\\" onClick=\\\"resultItem('" . $row2["City"] . ", " . $row2["State"]."','". $row2["Name"] ."','". $row2["GradYear"] ."','". $row2["Education"] ."','". $row2["Job"] ."','". $row2["Salary"] ."','". $row2["IsPathwayRelated"] ."')\\\"><p class=\\\"item\\\">" . $row2["Name"]; echo "<br>"; echo $row2["City"] . ", " . $row2["State"] . "</p></button>";} ?>";
 		}
         //Create map
         map = new google.maps.Map(mapCanvas, mapOptions);
@@ -82,14 +82,26 @@
             if(status === google.maps.GeocoderStatus.OK){
                 var latlng = results[0].geometry.location;
                 map.panTo(latlng);
+				map.setZoom(10);
              }else{
                 alert("Geocode unsuccessful");
             }
         });
     }
 	function resultItem(location,name,year,education,job,salary,isPathwayRelated){
-		change(x);
-		
+		change(location);
+		if(isPathwayRelated){
+			var related = "Yes";
+		}else{
+			var related = "No";
+		}
+		var nf = new Intl.NumberFormat("en-US", {
+	  		style: "currency",
+  			currency: "USD",
+  			minimumFractionDigits: 2,
+  			maximumFractionDigits: 2
+		});
+		document.getElementById("extension").innerHTML = "<button onClick=\"Open(0)\">X</button><h4>" + name + "</h4><p>" + "Graduation year: " + year + "</p><p>" + "Total College Education: " + education + "</p><p>" +  "Current Job: " + job + "</p><p>" + "Current Salary: " + nf.format(salary) + "</p><p>" + "Is Their job Pathway related?" + related + "</p>";
 	}
         //AIzaSyBeVccoArT3M9-jEI9G-QtpNH6Di0kY9ok
     </script>
