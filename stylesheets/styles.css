@@ -20,19 +20,19 @@ ul {
 
 li a {
   display: block;
-  font-family: Arial, sans-serif;
-  font-size: 2vw;
+  font-size: 1.5vw;
+  font-weight: bold;
   color: white;
-  padding: 10px 6px;
+  padding: 16px 6px;
   text-decoration: none;
 }
 
 li a:hover {
-  background-color: #555;
-  color: white;
+  background-color: #FFF;
+  color: black;
 }
 
-li a:hover active{}
+li a:hover active {}
 
 .MapFrame {
   display: grid;
@@ -44,9 +44,15 @@ li a:hover active{}
 }
 
 .MapNav {
+  font-family: Arial, sans-serif;
   background-color: #333333;
   grid-row: 1 / 5;
   grid-column: 1 / 1;
+}
+
+.MapNav p {
+  font-size: 24px;
+  text-align: center;
 }
 
 .MapTabExtension {
