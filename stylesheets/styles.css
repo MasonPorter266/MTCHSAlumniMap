@@ -9,21 +9,40 @@ body, main, ul, li, h1, h2, h3, h4, h5, h6, p {
 
 body {}
 
+.MapFrame {
+  display: grid;
+  grid-template-columns: 20vw 24vw 56vw;
+  grid-template-rows: repeat(4, 25vh);
+  color: black;
+  font-size: 10em;
+  text-align: center;
+}
+
+/*Navigation Begins*/
+.MapNav {
+  font-family: Arial, sans-serif;
+  background-color: #333333;
+  grid-row: 1 / 5;
+  grid-column: 1 / 1;
+}
+
 .nav {}
 
 ul {
   list-style-type: none;
   text-align: left;
-  position: fixed;
-  margin: 4vh;
+  margin-top: 3vh;
 }
 
 li a {
   display: block;
+}
+
+nav a:link, a:visited {
   font-size: 1.5vw;
   font-weight: bold;
   color: white;
-  padding: 16px 6px;
+  padding: 1.8vh 5vh;
   text-decoration: none;
 }
 
@@ -32,32 +51,15 @@ li a:hover {
   color: black;
 }
 
-li a:hover active {}
-
-.MapFrame {
-  display: grid;
-  grid-template-columns: 20vw 24vw 56vw;
-  grid-template-rows: repeat(4, 25vh);
-  color: white;
-  font-size: 10em;
-  text-align: center;
+li a:active {
+  background-color: #FFF;
+  color: black;
 }
-
-.MapNav {
-  font-family: Arial, sans-serif;
-  background-color: #333333;
-  grid-row: 1 / 5;
-  grid-column: 1 / 1;
-}
-
-.MapNav p {
-  font-size: 24px;
-  text-align: center;
-}
+/*Navigation Ends*/
 
 .MapTabExtension {
   /*display: none;*/
-  background-color: red;
+  background-color: #FFF;
   grid-row: 1 / 5;
   grid-column: 2 / 2;
 }
