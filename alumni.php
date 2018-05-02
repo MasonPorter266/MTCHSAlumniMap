@@ -16,7 +16,7 @@
 	if(!$conn){
 		die("Connection failed:");
 	}else{
-		$sql = "SELECT DISTINCT Longitude, Latitude FROM `MapLocation`";
+		$sql = "SELECT DISTINCT Longitude, City, State, Latitude FROM `MapLocation`";
 		$result = $conn->query($sql);
 		
 	}
@@ -24,27 +24,28 @@
 	<script>
     // JavaScript Document
     var map;
-    //set map
+    //set map and map options are the availble java ui
     function initMap(){
         var mapCanvas = document.getElementById("map");
         var mapOptions = {
             center: new google.maps.LatLng(43.6121,-116.3915), 
             zoom: 5,
-            zoomControl: true,
-            gestureHandling: 'none',
-            mapTypeControl: false,
             streetViewControl:false,
             fullscreenControl:false,
             disableDefaultUI:true
         }
+		//enter a name in search, it gets stored in searchkey on refresh
     	var searchkey = "<?php $search = $_GET['search']; echo $search; ?>";
+		//if searchkey has been used find all alumni that have something with the search key in it then make a button for us to press and see their info
 		if(searchkey != ""){
 			<?php 
 			$sql2 = "SELECT DISTINCT Alumni.Name, Alumni.GradYear, Alumni.Education, Alumni.Job,Alumni.Salary, Alumni.IsPathwayRelated, MapLocation.City, MapLocation.State, MapLocation.Latitude, MapLocation.Longitude FROM `Alumni` JOIN `MapLocation` ON Alumni.Location = MapLocation.ID WHERE Alumni.Name like '%".$_GET['search']."%' OR MapLocation.CITY like '%".$_GET['search']."%' OR MapLocation.State like '%". $_GET['search'] . "%'";
 			$result2 = $conn->query($sql2);
 			?>
 			Open(3);
-			document.getElementById("results").innerHTML = "<?php while($row2 = $result2->fetch_assoc()){echo "<button class=\\\"item\\\" onClick=\\\"resultItem(\\\"" . $row2["City"] . ", " . $row2["State"]."\\\",\\\"". $row2["Name"] ."\\\",\\\"". $row2["GradYear"] ."\\\",\\\"". $row2["Education"] ."\\\",\\\"". $row2["Job"] ."\\\",\\\"". $row2["Salary"] ."\\\",\\\"". $row2["IsPathwayRelated"] .")\\\"><p class=\\\"item\\\">" . $row2["Name"]; echo "<br>"; echo $row2["City"] . ", " . $row2["State"] . "</p></button>";} ?>";
+			//make each button with correct information
+			var fun = "<?php while($row2 = $result2->fetch_assoc()){echo $button = str_replace( "'s","","<button class=\\\"item\\\" onClick='resultItem(\\\"" . $row2["City"] . ", " . $row2["State"]."\\\",\\\"". $row2["Name"] ."\\\",\\\"". $row2["GradYear"] ."\\\",\\\"". $row2["Education"] ."\\\",\\\"". $row2["Job"] ."\\\",\\\"". $row2["Salary"] ."\\\",\\\"". $row2["IsPathwayRelated"] ."\\\")'><p class=\\\"item\\\">" . $row2["Name"]); echo "<br>"; echo $row2["City"] . ", " . $row2["State"] . "</p></button>";} ?>"
+			document.getElementById("results").innerHTML = fun
 		}
         //Create map
         map = new google.maps.Map(mapCanvas, mapOptions);
@@ -68,13 +69,15 @@
 			echo "\r\n";
 			echo "    });";
 			echo "\r\n";
+			echo "	marker" . $x .".addListener('click', function(event){;change(\"". $row["City"] . "," . $row["State"] ."\");Open(3);";
+			$sql3 = "SELECT DISTINCT Alumni.Name, Alumni.GradYear, Alumni.Education, Alumni.Job,Alumni.Salary, Alumni.IsPathwayRelated, MapLocation.City, MapLocation.State, MapLocation.Latitude, MapLocation.Longitude FROM `Alumni` JOIN `MapLocation` ON Alumni.Location = MapLocation.ID WHERE MapLocation.Longitude =". $row["Longitude"] ." OR MapLocation.Latitude =". $row["Latitude"];
+			$result3 = $conn->query($sql3);
+			echo "var fun = \""; while($row3 = $result3->fetch_assoc()){echo $button = str_replace( "'s","","<button class=\\\"item\\\" onClick='resultItem(\\\"" . $row3["City"] . ", " . $row3["State"]."\\\",\\\"". $row3["Name"] ."\\\",\\\"". $row3["GradYear"] ."\\\",\\\"". $row3["Education"] ."\\\",\\\"". $row2["Job"] ."\\\",\\\"". $row3["Salary"] ."\\\",\\\"". $row3["IsPathwayRelated"] ."\\\")'><p class=\\\"item\\\">" . $row3["Name"]); echo "<br>"; echo $row3["City"] . ", " . $row3["State"] . "</p></button>";};
+			echo "\";document.getElementById('results').innerHTML = fun; ;});";
+			echo "\r\n";
 		}
-		
-			
 		?>
 	}
-        
-        
         //change the position on the map.
     function change(name){
         var geocoder = new google.maps.Geocoder();
@@ -88,6 +91,7 @@
             }
         });
     }
+	//organize the information of the button
 	function resultItem(location,name,year,education,job,salary,isPathwayRelated){
 		change(location);
 		if(isPathwayRelated){
@@ -95,13 +99,7 @@
 		}else{
 			var related = "No";
 		}
-		var nf = new Intl.NumberFormat("en-US", {
-	  		style: "currency",
-  			currency: "USD",
-  			minimumFractionDigits: 2,
-  			maximumFractionDigits: 2
-		});
-		document.getElementById("extension").innerHTML = "<button onClick=\"Open(0)\">X</button><h4>" + name + "</h4><p>" + "Graduation year: " + year + "</p><p>" + "Total College Education: " + education + "</p><p>" +  "Current Job: " + job + "</p><p>" + "Current Salary: " + nf.format(salary) + "</p><p>" + "Is Their job Pathway related?" + related + "</p>";
+		document.getElementById("extension").innerHTML = "<button onClick=\"Open(0)\">X</button><h4>" + name + "</h4><p>" + "Graduation year: " + year + "</p><p>" + "Total College Education: " + education + "</p><p>" +  "Current Job: " + job + "</p><p>" + "Current Salary: " + salary + "</p><p>" + "Is Their job Pathway related?" + related + "</p>";
 	}
         //AIzaSyBeVccoArT3M9-jEI9G-QtpNH6Di0kY9ok
     </script>
