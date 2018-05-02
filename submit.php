@@ -35,7 +35,7 @@
 	$msg = "An error has occured,";
 	$empty ="";
 	
-	while($row = $result ->fetch_assoc()){
+	while($row = $result->fetch_assoc()){
 		if($Name = $row['Name']){
 			$update = true;
 		}
