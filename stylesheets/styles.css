@@ -11,10 +11,8 @@ body {}
 
 .MapFrame {
   display: grid;
-  grid-template-columns: 20vw 24vw 56vw;
+  grid-template-columns: 20vw 0vw 80vw; /*24vw is the size of 2nd panel. Third panel:(56vw is shrunk view. 80vw is normal size.)*/
   grid-template-rows: repeat(4, 25vh);
-  color: black;
-  font-size: 10em;
   text-align: center;
 }
 
@@ -24,14 +22,13 @@ body {}
   background-color: #333333;
   grid-row: 1 / 5;
   grid-column: 1 / 1;
+  padding-top: 6vh;
 }
-
-.nav {}
 
 ul {
   list-style-type: none;
   text-align: left;
-  margin-top: 3vh;
+  margin-top: 5vh;
 }
 
 li a {
@@ -55,17 +52,26 @@ li a:active {
   background-color: #FFF;
   color: black;
 }
+
+.MapNav p {
+  padding-top: 46vh;
+  text-align: center;
+  font-size: 1.2vw;
+  font-weight: 500;
+  color: #FFF;
+}
+
 /*Navigation Ends*/
 
 .MapTabExtension {
-  /*display: none;*/
+  display: none;
   background-color: #FFF;
   grid-row: 1 / 5;
   grid-column: 2 / 2;
 }
 
 .MapPreview {
-  background-color: #B52022;
+  background-color: #eb2b3e;
   grid-row: 1 / 5;
   grid-column: 3 / 3;
 }
