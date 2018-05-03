@@ -11,7 +11,8 @@ body {}
 
 .MapFrame {
   display: grid;
-  grid-template-columns: 20vw 0vw 80vw; /*24vw is the size of 2nd panel. Third panel:(56vw is shrunk view. 80vw is normal size.)*/
+  grid-template-columns: 20vw 24vw 56vw;
+  /*24vw is the size of 2nd panel. Third panel:(56vw is shrunk view. 80vw is normal size.)*/
   grid-template-rows: repeat(4, 25vh);
   text-align: center;
 }
@@ -60,11 +61,10 @@ li a:active {
   font-weight: 500;
   color: #FFF;
 }
-
 /*Navigation Ends*/
 
 .MapTabExtension {
-  display: none;
+  /*display: none;*/
   background-color: #FFF;
   grid-row: 1 / 5;
   grid-column: 2 / 2;
