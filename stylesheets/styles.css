@@ -56,19 +56,26 @@ li a:active {
 
 .MapNav p {
   padding-top: 46vh;
-  text-align: center;
   font-size: 1.2vw;
   font-weight: 500;
   color: #FFF;
 }
 /*Navigation Ends*/
 
+/*MapTabExtension Begins*/
 .MapTabExtension {
   /*display: none;*/
   background-color: #FFF;
+  font-family: Arial, sans-serif;
   grid-row: 1 / 5;
   grid-column: 2 / 2;
+  overflow-x: hidden;
 }
+
+#ABOUT {
+  text-align: left;
+}
+/*MapTabExtension Ends*/
 
 .MapPreview {
   background-color: #eb2b3e;
