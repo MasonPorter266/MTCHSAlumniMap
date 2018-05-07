@@ -6,28 +6,29 @@
   <title>MTCHS Graduate Map</title>
   <link rel="stylesheet" type="text/css" href="stylesheets/styles.css" media="screen">
   <link rel="icon" href="images/MTCHSLogo.png">
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,900" rel="stylesheet">
 </head>
 
 <header>
 
 </header>
 
-<body> 
+<body>
   <?php
   	//include java as well as make a sql connection
   	include'JQuery/animations.html';
 	$servername = "clone2.smtchs.org";
 	$username = "clone2";
-	
+
 	$conn = new mysqli($servername, $username, '*SsEkS=3k]1T', 'clone2_alumnimap');
-	
+
 	//test connection if it works run sql
 	if(!$conn){
 		die("Connection failed:");
 	}else{
 		$sql = "SELECT DISTINCT Longitude, Latitude FROM `MapLocation`";
 		$result = $conn->query($sql);
-		
+
 	}
   ?>
 	<script>
@@ -37,7 +38,7 @@
     function initMap(){
         var mapCanvas = document.getElementById("map");
         var mapOptions = {
-            center: new google.maps.LatLng(43.6121,-116.3915), 
+            center: new google.maps.LatLng(43.6121,-116.3915),
             zoom: 5,
             zoomControl: true,
             gestureHandling: 'none',
@@ -48,7 +49,7 @@
         }
     	var searchkey = "<?php $search = $_GET['search']; echo $search; ?>";
 		if(searchkey != ""){
-			<?php 
+			<?php
 			$sql2 = "SELECT DISTINCT Alumni.Name, MapLocation.City, MapLocation.State FROM `Alumni` JOIN `MapLocation` ON Alumni.Location = MapLocation.ID WHERE Alumni.Name like '%".$_GET['search']."%' OR MapLocation.CITY like '%".$_GET['search']."%' OR MapLocation.State like '%". $_GET['search'] . "%'";
 			$result2 = $conn->query($sql2);
 			?>
@@ -57,12 +58,12 @@
 		}
         //Create map
         map = new google.maps.Map(mapCanvas, mapOptions);
-    
+
         //create markers
         var geocoder = new google.maps.Geocoder();
-        
+
         //meridian
-		<?php 
+		<?php
 		$i=0;
 		$x=0;
 		while($row = $result->fetch_assoc()) {
@@ -78,12 +79,12 @@
 			echo "    });";
 			echo "\r\n";
 		}
-		
-			
+
+
 		?>
 	}
-        
-        
+
+
         //change the position on the map.
     function change(name){
         var geocoder = new google.maps.Geocoder();
@@ -117,16 +118,16 @@
     <div class="MapTabExtension">
       <div id="ABOUT">
         <h2>What is MTCHS?</h2>
-        <h4>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Feugiat in fermentum posuere urna nec tincidunt praesent semper feugiat. Id leo in vitae turpis massa sed elementum. Amet justo donec enim diam vulputate ut pharetra. Aliquam eleifend mi in nulla posuere sollicitudin. Volutpat diam ut venenatis tellus in. Sem nulla pharetra diam sit amet nisl. Enim blandit volutpat maecenas volutpat blandit aliquam etiam. Pharetra sit amet aliquam id diam. Ornare lectus sit amet est placerat.</h4>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Feugiat in fermentum posuere urna nec tincidunt praesent semper feugiat. Id leo in vitae turpis massa sed elementum. Amet justo donec enim diam vulputate ut pharetra. Aliquam eleifend mi in nulla posuere sollicitudin. Volutpat diam ut venenatis tellus in. Sem nulla pharetra diam sit amet nisl. Enim blandit volutpat maecenas volutpat blandit aliquam etiam. Pharetra sit amet aliquam id diam. Ornare lectus sit amet est placerat.</h4>
 
         <h2>What is the Alumni Map?</h2>
-        <h4>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Feugiat in fermentum posuere urna nec tincidunt praesent semper feugiat. Id leo in vitae turpis massa sed elementum. Amet justo donec enim diam vulputate ut pharetra. Aliquam eleifend mi in nulla posuere sollicitudin. Volutpat diam ut venenatis tellus in. Sem nulla pharetra diam sit amet nisl. Enim blandit volutpat maecenas volutpat blandit aliquam etiam. Pharetra sit amet aliquam id diam. Ornare lectus sit amet est placerat.</h4>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Feugiat in fermentum posuere urna nec tincidunt praesent semper feugiat. Id leo in vitae turpis massa sed elementum. Amet justo donec enim diam vulputate ut pharetra. Aliquam eleifend mi in nulla posuere sollicitudin. Volutpat diam ut venenatis tellus in. Sem nulla pharetra diam sit amet nisl. Enim blandit volutpat maecenas volutpat blandit aliquam etiam. Pharetra sit amet aliquam id diam. Ornare lectus sit amet est placerat.</p>
 
         <h2>How does it work?</h2>
-        <h4>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Feugiat in fermentum posuere urna nec tincidunt praesent semper feugiat. Id leo in vitae turpis massa sed elementum. Amet justo donec enim diam vulputate ut pharetra. Aliquam eleifend mi in nulla posuere sollicitudin. Volutpat diam ut venenatis tellus in. Sem nulla pharetra diam sit amet nisl. Enim blandit volutpat maecenas volutpat blandit aliquam etiam. Pharetra sit amet aliquam id diam. Ornare lectus sit amet est placerat.</h4>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Feugiat in fermentum posuere urna nec tincidunt praesent semper feugiat. Id leo in vitae turpis massa sed elementum. Amet justo donec enim diam vulputate ut pharetra. Aliquam eleifend mi in nulla posuere sollicitudin. Volutpat diam ut venenatis tellus in. Sem nulla pharetra diam sit amet nisl. Enim blandit volutpat maecenas volutpat blandit aliquam etiam. Pharetra sit amet aliquam id diam. Ornare lectus sit amet est placerat.</p>
 
         <h2>I am a past student. How can I join?</h2>
-        <h4>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Feugiat in fermentum posuere urna nec tincidunt praesent semper feugiat. Id leo in vitae turpis massa sed elementum. Amet justo donec enim diam vulputate ut pharetra. Aliquam eleifend mi in nulla posuere sollicitudin. Volutpat diam ut venenatis tellus in. Sem nulla pharetra diam sit amet nisl. Enim blandit volutpat maecenas volutpat blandit aliquam etiam. Pharetra sit amet aliquam id diam. Ornare lectus sit amet est placerat.</h4>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Feugiat in fermentum posuere urna nec tincidunt praesent semper feugiat. Id leo in vitae turpis massa sed elementum. Amet justo donec enim diam vulputate ut pharetra. Aliquam eleifend mi in nulla posuere sollicitudin. Volutpat diam ut venenatis tellus in. Sem nulla pharetra diam sit amet nisl. Enim blandit volutpat maecenas volutpat blandit aliquam etiam. Pharetra sit amet aliquam id diam. Ornare lectus sit amet est placerat.</p>
       </div>
       <div id="SEARCH">
         <form method = 'none' id='search'>
@@ -151,17 +152,6 @@
           <input name =\"fake\" type = \"text\" style = \"display:none\"><input type='submit'>
         </form>
       </div>
-
-      <!--
-      <Log Begin: Huston we have a problem:>
-      There is a need for the TabExtension to feature different content depending on the user selection.
-      To do this there is two possiblities with varying difficulty...
-      The first option is to add extra grid-columns located at the same place that appear and hide depending on selections.
-      The second option is to use JQuery to make content fill MapTabExtension when needed.
-
-      I am not sure which is easier and cleaner so research is needed.
-      <Log ended>
-     -->
     </div>
 
     <div class="Map" id="map">
