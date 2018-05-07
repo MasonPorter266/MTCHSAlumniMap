@@ -11,13 +11,14 @@ body {}
 
 .MapFrame {
   display: grid;
-  grid-template-columns: 20vw 24vw 56vw;
+  grid-template-columns: 20vw 26vw 54vw;
   /*24vw is the size of 2nd panel. Third panel:(56vw is shrunk view. 80vw is normal size.)*/
   grid-template-rows: repeat(4, 25vh);
   text-align: center;
 }
 
 /*Navigation Begins*/
+
 .MapNav {
   font-family: Arial, sans-serif;
   background-color: #333333;
@@ -55,16 +56,17 @@ li a:active {
 }
 
 .MapNav p {
-  padding-top: 46vh;
+  padding-top: 47vh;
   font-size: 1.2vw;
   font-weight: 500;
   color: #FFF;
 }
+
 /*Navigation Ends*/
 
 /*MapTabExtension Begins*/
+
 .MapTabExtension {
-  /*display: none;*/
   background-color: #FFF;
   font-family: Arial, sans-serif;
   grid-row: 1 / 5;
@@ -73,8 +75,23 @@ li a:active {
 }
 
 #ABOUT {
+  /*display: none;*/
+  font-family: 'Source Sans Pro', sans-serif;
   text-align: left;
+  padding-top: 1vh;
+  padding-bottom: 1vh;
 }
+
+#ABOUT h2 {
+  padding: 1vw;
+  font-size: 18px;
+}
+
+#ABOUT p {
+  padding: 0vw 1vw;
+  font-size: 15px;
+}
+
 /*MapTabExtension Ends*/
 
 .MapPreview {
