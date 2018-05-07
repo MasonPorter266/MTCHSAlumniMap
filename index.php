@@ -155,7 +155,7 @@
     </div>
 
     <div class="Map" id="map">
-      <!--Map API Key Code goes here-->
+      <!--Google Map goes here-->
     </div>
   </div>
 
