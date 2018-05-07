@@ -33,7 +33,7 @@ function Open(x){
 			break;
 			
 			case 4:
-			$("#extension").html("<button onClick=\"Open(0)\">X</button><p>New/Update Alumni</p> <form Method = 'get' action = 'submit.php'><label>Email<input type='text' name='email'></label><label>Name<input type='text' name='Name'></label><label>City<input type='text' name='city'></label><label>State<input type='text' name='state'></label><label>Graduation Year<input type='number' name='year'><label>Current Job<input type='text' name='currentJob'><label>Current Salary<input type='text' name='salary'><p>Is your job Pathway related?</p><br><label>no<input value='no' type='radio' name='isRelated'></label><label> yes<input value='yes' type = 'radio' name = 'isRelated'></label><input name =\"fake\" type = \"text\" style = \"display:none\"><input type='submit'></form>");
+			$("#extension").html("<button onClick=\"Open(0)\">X</button><p>New/Update Alumni</p> <form Method = 'get' action = 'submit.php'><label>Email<input type='text' name='email'></label><label>Name<input type='text' name='name'></label><label>City<input type='text' name='city'></label><label>State<input type='text' name='state'></label><label>Graduation Year<input type='number' name='year'><label>Current Job<input type='text' name='currentJob'><label>Current Salary<input type='text' name='salary'><p>Is your job Pathway related?</p><br><label>no<input value='no' type='radio' name='isRelated'></label><label> yes<input value='yes' type = 'radio' name = 'isRelated'></label><input name =\"fake\" type = \"text\" style = \"display:none\"><input type='submit'></form>");
 			$("#extension").removeClass("closed").addClass("open");
 			$("#extension").animate({width:'15vw'},{duration:1000});
 			$("#map").animate({
